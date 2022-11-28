@@ -1,0 +1,15 @@
+<div class="button_to">
+  <% if item.favorited_by?(current_user) %>
+    <div class="favorite_star ">
+      <%= button_to(item_add_path(item), method: :delete, remote: true, id: :"favorite_btn_#{item.id}") do %>
+        <i class="fas fa-star fa-border star" ></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="not_favorite_star">
+      <%= button_to(item_add_path(item), method: :post, remote: true, id: :"favorite_btn_#{item.id}") do %>
+        <i class="far fa-star fa-border"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>

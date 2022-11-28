@@ -1,0 +1,44 @@
+<h1>Favorite</h1>
+
+<div class="top_index">
+    <table class="table table-hover table-responsive align-middle">
+        <thead>
+            <tr>
+                <div class="index_id">
+                    <th>ID</th>
+                </div>
+                <div class="index_product_name">
+                    <th>商品名</th>
+                </div>
+                <div class="index_arrival_source">
+                    <th>入荷元</th>
+                </div>
+                <div class="index_manufactuer">
+                    <th>製造元</th>
+                </div>
+                <div class="index_price">
+                    <th>価格</th>
+                </div>
+                <div class="index_created_at">
+                    <th>作成日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @favorite_list.present? %>
+                <% @favorite_list.each do |item| %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.product_name %></td>
+                        <td><%= item.arrival_source %></td>
+                        <td><%= item.manufactuer%></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.created_at%></td>
+                        <td class='star-btn' id="favorite_btn_<%= item.id %>">
+                            <%= render partial: "favorites/favorite", locals: {item: item} %>
+                        </td>                        
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>

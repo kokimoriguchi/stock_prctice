@@ -1,0 +1,52 @@
+<h1>商品一覧</h1>
+
+<div class="top_index">
+    <table class="table table-hover table-responsive align-middle">
+        <thead>
+            <tr>
+                <div class="index_id">
+                    <th>ID</th>
+                </div>
+                <div class="index_product_name">
+                    <th>商品名</th>
+                </div>
+                <div class="index_arrival_source">
+                    <th>入荷元</th>
+                </div>
+                <div class="index_manufactuer">
+                    <th>製造元</th>
+                </div>
+                <div class="index_price">
+                    <th>価格</th>
+                </div>
+                <div class="index_created_at">
+                    <th>作成日</th>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            <% @items.each do |item| %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.product_name %></td>
+                    <td><%= item.arrival_source %></td>
+                    <td><%= item.manufactuer %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.created_at %></td>
+                    <td><%= link_to '編集', "items/#{item.id}/edit", class: "btn btn-lg btn-primary" %></td>
+                    <td><%= link_to '削除', "items/#{item.id}", method: :delete, class: "btn btn-lg btn-primary" %></td>
+                    <td class='cart-btn' id="cart_btn_<%= item.id %>">
+                        <%= render partial: "carts/cart", locals: {item: item} %>
+                    </td>
+                    <td class='star-btn' id="favorite_btn_<%= item.id %>">
+                        <%= render partial: "favorites/favorite", locals: {item: item} %>
+                    </td>
+                <tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center top_index_pagy">
+    <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+</div>

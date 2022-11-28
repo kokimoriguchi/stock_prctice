@@ -1,0 +1,59 @@
+<h1>新規商品登録</h1>
+<p>必要事項を記入してください</p>
+<ul class="nav">
+	<li class="current">1.入力</li>
+	<li>2.確認</li>
+	<li>3.完了</li>
+</ul>
+
+<!--入力画面-->
+
+<%= form_with model: @item, url: items_confirm_path, data: { turbo: false }, local: true do |f| %> <!--import "@hotwired/turbo-rails"でのエラーをdata: { turbo: false }でこのHTML変換を無効化-->
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h5 class='form-header-text'>
+        新規登録
+      </h5>
+    </div>
+  </div>
+  
+  <div class="correct-msg-box">
+    <div class="contact-form">
+      <div class="correct-text-field">
+        <%= f.label :product_name, "商品名" %>
+        <%= f.text_field :product_name, required: true %>
+      </div>
+      <div class="correct-text-field">
+        <%= f.label :arrival_source, "入荷元" %>
+        <%= f.text_field :arrival_source, required: true %>
+      </div>
+      <div class="correct-text-field">
+        <%= f.label :manufactuer, "製造元" %>
+        <%= f.text_field :manufactuer, required: true %>
+      </div>
+      <div class="correct-text-field">
+        <%= f.label :price, "価格" %>
+        <%= f.text_field :price, required: true %>
+      </div>
+        <div class="">
+          <%= f.fields_for :logs do |log| %>
+            <div class="">
+              <%= log.label :tel, "電話番号" %>
+              <%= log.text_field :tel, required: true%>
+            </div>
+            <div class="">
+              <%= log.label :email, "email" %>
+              <%= log.text_field :email, required: true %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="send-btn-contents">
+    <%= f.submit "確認画面へ", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<!--確認画面-->
+
+<!--完了画面-->
