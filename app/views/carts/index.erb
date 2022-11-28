@@ -26,23 +26,21 @@
         </thead>
         <tbody>
             <div class="buy_item_in_cart">
-                <%= form_with model: @cart, url: carts_confirm_path, data: { turbo: false }, local: true do |f| %>
-                    <div class="">
-                        <% @cart_list.each do |cart| %>
-                            <tr>
-                                <td><%= cart.id %></td>
-                                <td><%= cart.product_name %></td>
-                                <td><%= cart.arrival_source %></td>
-                                <td><%= cart.manufactuer %></td>
-                                <td><%= cart.price %></td>
+                <div class="">
+                    <% @cart_list.each do |cart| %>
+                        <tr>
+                            <td><%= cart.id %></td>
+                            <td><%= cart.product_name %></td>
+                            <td><%= cart.arrival_source %></td>
+                            <td><%= cart.manufactuer %></td>
+                            <td><%= cart.price %></td>
+                            <%= form_with model: @cart,  data: { turbo: false }, remote: true do |f| %>
                                 <td><%= f.select :item_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %></td>
-                            <tr>
-                        <% end %>
-                    </div>
-                    <div class="send-btn-contents">
-                        <%= f.submit "確認画面へ", class: "btn btn-primary" %>
-                    </div>
-                <% end %>
+                                <td><%= f.submit "更新", class: "btn btn-primary"%></td>
+                            <% end %>
+                        <tr>
+                    <% end %>
+                </div>
             <div>
         </tbody>
     </table>

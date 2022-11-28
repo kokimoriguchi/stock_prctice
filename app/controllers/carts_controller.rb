@@ -6,6 +6,10 @@ class CartsController < ApplicationController
         @cart_list = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得        
     end
     
+    def update
+        @cart = Cart.new(cart_params)
+        @cart.save
+    end
 
     def create
         @cart = Cart.create(user_id: current_user.id, item_id: @item.id)
