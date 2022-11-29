@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-    before_action :set_item, only: [:create, :destroy]
+    before_action :set_item, only: [:create, :destroy,]
 
     def index
         carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
@@ -7,8 +7,15 @@ class CartsController < ApplicationController
     end
     
     def update
-        @cart = Cart.new(cart_params)
-        @cart.save
+        carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
+        @cart_list = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得
+        @carts = Cart.new(cart_params)
+        if @cart.save
+            respond_to do |format|
+              format.html { redirect_to root_path }
+              format.json
+            end
+        end
     end
 
     def create

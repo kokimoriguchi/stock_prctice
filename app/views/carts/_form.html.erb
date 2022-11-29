@@ -1,0 +1,12 @@
+<span class="cart_count">
+    <%= form_tag ajax_path, method: :get, remote: true do %>
+      <%= hidden_field_tag :id, cart_list %>
+      <%= select_tag :count, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), class: "cart_drop_count" %>
+    <% end %>
+</span>
+<script>
+        $('.cart_drop_count').change(function() {
+            $(this).parent().submit();
+            console.log("aaa");//ここのスクリプトタグ中をjsのファイルにぶち込んで発火機能つける
+        });
+</script>

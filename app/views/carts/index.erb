@@ -34,14 +34,13 @@
                             <td><%= cart.arrival_source %></td>
                             <td><%= cart.manufactuer %></td>
                             <td><%= cart.price %></td>
-                            <%= form_with model: @cart,  data: { turbo: false }, remote: true do |f| %>
-                                <td><%= f.select :item_num, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %></td>
-                                <td><%= f.submit "更新", class: "btn btn-primary"%></td>
-                            <% end %>
+                            <td class= "cart_update" >
+                                <%= render "form", {cart_list: @cart_list} %>
+                            </td>
                         <tr>
                     <% end %>
                 </div>
             <div>
         </tbody>
     </table>
-</div>
+</div> 
