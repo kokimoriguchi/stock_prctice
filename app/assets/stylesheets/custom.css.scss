@@ -2,6 +2,18 @@
 @import "bootstrap";
 @import "font-awesome";
 /* mixins, variables, etc. */
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.fa-border {
+  border: none
+}
 
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
@@ -181,7 +193,6 @@ footer {
 .star {
   color: yellow;
   text-shadow: 0 0 2px #000;
-  background-color: #eaeaea;
 }
 button {
   border: none;
