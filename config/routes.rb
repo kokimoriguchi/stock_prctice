@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'items/show' => 'items#show'
   get 'items/:id'  => 'items#destroy'
   delete  'items/:id'  => 'items#destroy'
-  get 'ajax' => 'carts#update'
+  post 'carts/update' => 'carts#update'
   #ホーム画面ルート
   root 'stock_practice#home'
   get 'stock_practice/home'

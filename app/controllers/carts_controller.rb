@@ -7,13 +7,15 @@ class CartsController < ApplicationController
     end
     
     def update
-        carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
-        @cart_list = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得
-        @carts = Cart.new(cart_params)
-        if @cart.save
-            respond_to do |format|
-              format.html { redirect_to root_path }
-              format.json
+        @cart = Cart.new(cart_params)
+
+        respond_to do |format|
+            if @car.save
+                format.html {render :index}
+                format.js  # update.js.erbが呼び出される
+            else
+                format.html {render :index}
+                format.js
             end
         end
     end
