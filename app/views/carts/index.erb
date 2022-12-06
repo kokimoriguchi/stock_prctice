@@ -27,15 +27,15 @@
         <tbody>
             <div class="buy_item_in_cart">
                 <div class="">
-                    <% @cart_list.each do |cart| %>
+                    <% @cart.each do |cart| %>
                         <tr>
                             <td><%= cart.id %></td>
                             <td><%= cart.product_name %></td>
                             <td><%= cart.arrival_source %></td>
                             <td><%= cart.manufactuer %></td>
                             <td><%= cart.price %></td>
-                            <td class= "cart_update" >
-                                <%= render "form", {cart_list: @cart_list} %>
+                            <td class= "cart_update" id="cart_num_btn_<%= cart.id %> >
+                                <%= render "form", {cart: cart} %>
                             </td>
                         <tr>
                     <% end %>

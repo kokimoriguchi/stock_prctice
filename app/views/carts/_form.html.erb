@@ -1,6 +1,11 @@
 <span class="cart_count">
-    <%= form_tag carts_update_path, method: :post, remote: true do %>
-      <%= hidden_field_tag :id, cart %>
-      <%= select_tag :count, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), class: "cart_drop_count" %>
+    <%= form_with model: @cart, url: carts_update_path, method: :post, id: :"cart_num_btn_#{cart.id}" do |form| %>
+      <%= form.select :item_num, [['1',1], ['2',2], ['3',3], ['4',4], ['5',5], ['6',6], ['7',7], ['8',8], ['9',9], ['10',10],], {id: "cart_id", class: "cart_drop_count"} %>
+      <script>
+        $('.cart_drop_count').change(function() {
+          $(this).parent().submit();
+          console.log("aaa");//ここのスクリプトタグ中をjsのファイルにぶち込んで発火機能つける
+        });
+      </script>
     <% end %>
 </span>

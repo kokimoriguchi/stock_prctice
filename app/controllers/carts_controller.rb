@@ -3,21 +3,21 @@ class CartsController < ApplicationController
 
     def index
         carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
-        @cart_list = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得        
+        @cart = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得        
     end
     
     def update
-        @cart = Cart.new(cart_params)
-
+        carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
+        @cart = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得        
+        @carts = @item.update(cart_params)
         respond_to do |format|
-            if @car.save
-                format.html {render :index}
-                format.js  # update.js.erbが呼び出される
-            else
-                format.html {render :index}
-                format.js
-            end
+        if @cart.update(cart_params)
+          format.html
+          format.js
+        else
+          format.js {render :new}
         end
+      end
     end
 
     def create
