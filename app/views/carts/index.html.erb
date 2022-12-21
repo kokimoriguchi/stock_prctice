@@ -34,8 +34,8 @@
                             <td><%= cart.arrival_source %></td>
                             <td><%= cart.manufactuer %></td>
                             <td><%= cart.price %></td>
-                            <td class= "cart_update" id="cart_num_btn_<%= cart.id %> >
-                                <%= render "form", {cart: cart} %>
+                            <td class= "cart_update" id="cart_btn_<%= cart.id %> >
+                                <%= render "form", locals: {cart: cart} %>
                             </td>
                         <tr>
                     <% end %>
