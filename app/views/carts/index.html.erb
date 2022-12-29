@@ -34,7 +34,8 @@
                             <td><%= cart.arrival_source %></td>
                             <td><%= cart.manufactuer %></td>
                             <td><%= cart.price %></td>
-                            <td class= "cart_update" id="cart_btn_<%= cart.id %> >
+                            <td class= "cart_update" id= "<%= @cart_id %>" >
+                                <%= hidden_field_tag :cart_id, @cart_id %>
                                 <%= render "form", locals: {cart: cart} %>
                             </td>
                         <tr>

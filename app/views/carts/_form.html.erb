@@ -1,16 +1,17 @@
 <span class="cart_count">
-    <%= form_with url: "carts/update" model: @cart, remote: true do |form| %>
-      <%= form.select :item_num, [['1',1], ['2',2], ['3',3], ['4',4], ['5',5], ['6',6], ['7',7], ['8',8], ['9',9], ['10',10],], {}, {class: "cart_ajax", :onchange => "changeTemplate($(this).val())"} %>
+    <%= form_with(model:@cart, url: carts_update_path) do |form| %>
+      <%= form.hidden_field :cart_id, value: @cart_id%>
+      <%= form.select :item_num, [['1',1], ['2',2], ['3',3], ['4',4], ['5',5], ['6',6], ['7',7], ['8',8], ['9',9], ['10',10],], {}, {class: "ajax", :onchange => "changeTemplate($(this).val())"} %>
       <script>
         function changeTemplate(val){
-          var template_id = val;
-
+          var item_num = val;
+          console.log(item_num);
           $.ajax({
             url: "/carts/update",
-            type: "GET",
-            data: { template_id: template_id }
+            type: "post",
           })
         }
       </script>
+      <%= form.submit %>
     <% end %>
 </span>

@@ -3,14 +3,16 @@ class CartsController < ApplicationController
 
     def index
         carts = Cart.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのカートに入っているItem_idカラムを取得
-        @cart = Item.find(carts)     # Itemsテーブルから、カートに入っているレコードを取得
+        @cart = Item.find(carts)    # Itemsテーブルから、上で定義したカートに入っているレコードを取得
+        cart = Cart.find_by(params[:id])
+        @cart_id = cart.id
     end
     
     def update
-        template = Template.find(params[:cart_id])
-        @template_body = template.body
-        respond_to do |format|
-          format.js
+        @cart = Cart.find(params[:id])
+        @cart.save
+            respond_to do |format|
+            format.js
         end
     end
 
@@ -29,7 +31,7 @@ class CartsController < ApplicationController
     end
 
     def cart_params
-      params.require(:item).permit(:item_id, [:item_num])
+      params.require(:item).permit([:item_num])
     end
 
 end

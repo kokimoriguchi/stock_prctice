@@ -32,8 +32,6 @@ Rails.application.routes.draw do
   #問い合わせ関係ルート
 
 
-
-
   resources :mypages
   resources :users
   resources :items, only: [:new, :create, :back, :edit, :update] do
