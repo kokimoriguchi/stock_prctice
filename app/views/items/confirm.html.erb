@@ -17,15 +17,6 @@
     <p><%= @item.price %></p>
     <%= f.hidden_field :price, required: true %>
 
-    <%= f.fields_for "logs" do |log| %>
-        <%= log.label :tel, "電話番号" %>
-        <p><%= @item.logs.pluck(:tel) %></p>
-        <%= log.hidden_field :tel, required: true%>
-
-        <%= log.label :email, "email" %>
-        <p><%= @item.logs.pluck(:email) %></p>
-        <%= log.hidden_field :email, required: true %>
-    <% end %>
     <%= f.submit "入力画面に戻る", class: "btn btn-primary" %>
 <% end %>
 
@@ -35,8 +26,6 @@
     <%= f.hidden_field :manufactuer, required: true %>
     <%= f.hidden_field :price, required: true %>
     <%= f.fields_for :logs do |log| %>
-        <%= log.hidden_field :tel, required: true%>
-        <%= log.hidden_field :email, required: true %>
     <% end %>
     <%= f.submit "登録する", class: "btn btn-primary" %>
 <% end %>
