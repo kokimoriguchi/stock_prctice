@@ -37,7 +37,7 @@
                     <td><%= link_to '削除', "items/#{item.id}", method: :delete, class: "btn btn-lg btn-primary" %></td>
                     <td class='cart-btn' id="cart_btn_<%= item.id %>">
                         <%= render partial: "carts/cart", locals: {item: item} %>
-                        <script> 
+                        <script>
                             $(".cart-btn").click(function(){
                                 location.reload();
                             })

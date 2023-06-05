@@ -1,19 +1,19 @@
 <h1>MyPage</h1>
 <p>you're ID</p>
 <% if logged_in? %>
-    <%= current_user.login_id %>
+	<%= current_user.login_id %>
 <% end %>
 
 <div class="center jumbotron">
 <!--商品一覧ページのリンク（itemのindex）-->
-    <%= link_to "商品一覧", items_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "商品一覧", items_path, class: "btn btn-lg btn-primary" %>
 
 <!--商品新規追加ページのリンク（itemのnew）-->
-    <%= link_to "商品新規追加", items_new_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "商品新規追加", items_new_path, class: "btn btn-lg btn-primary" %>
 
 <!--お気に入り商品ページのリンク(itemのshow)-->
-    <%= link_to "お気に入り商品", items_show_path, class: "btn btn-lg btn-primary" %>
-    
+	<%= link_to "お気に入り商品", items_show_path, class: "btn btn-lg btn-primary" %>
+
 <!--カート内商品ページのリンク(cartのindex)-->
-    <%= link_to "カート内商品", carts_index_path,  class: "btn btn-lg btn-primary"%>
+	<%= link_to "カート内商品", carts_index_path,  class: "btn btn-lg btn-primary"%>
 </div>

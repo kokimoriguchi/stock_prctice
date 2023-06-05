@@ -46,14 +46,14 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      flash[:success] = "編集完了しました"      
+      flash[:success] = "編集完了しました"
       redirect_to action: :index
     else
       flash.now[:danger] = "編集に失敗しました"
       render 'edit'
     end
   end
-  
+
   def destroy
     @item = Item.find(params[:id])
     @item.destroy

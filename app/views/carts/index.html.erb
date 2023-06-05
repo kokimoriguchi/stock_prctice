@@ -1,47 +1,47 @@
 <h1>カート内商品一覧</h1>
 
 <div class="top_index">
-    <table class="table table-hover table-responsive align-middle">
-        <thead>
-            <tr>
-                <div class="index_id">
-                    <th>ID</th>
-                </div>
-                <div class="index_product_name">
-                    <th>商品名</th>
-                </div>
-                <div class="index_arrival_source">
-                    <th>入荷元</th>
-                </div>
-                <div class="index_manufactuer">
-                    <th>製造元</th>
-                </div>
-                <div class="index_price">
-                    <th>価格</th>
-                </div>
-                <div class="index_price">
-                    <th>個数</th>
-                </div>
-            </tr>
-        </thead>
-        <tbody>
-            <div class="buy_item_in_cart">
-                <div class="">
-                    <% @cart.each do |cart| %>
-                        <tr>
-                            <td><%= cart.id %></td>
-                            <td><%= cart.product_name %></td>
-                            <td><%= cart.arrival_source %></td>
-                            <td><%= cart.manufactuer %></td>
-                            <td><%= cart.price %></td>
-                            <td class= "cart_update" id= "<%= @cart_id %>" >
-                                <%= hidden_field_tag :cart_id, @cart_id %>
-                                <%= render "form", locals: {cart: cart} %>
-                            </td>
-                        <tr>
-                    <% end %>
-                </div>
-            <div>
-        </tbody>
-    </table>
-</div> 
+	<table class="table table-hover table-responsive align-middle">
+		<thead>
+			<tr>
+				<div class="index_id">
+					<th>ID</th>
+				</div>
+				<div class="index_product_name">
+					<th>商品名</th>
+				</div>
+				<div class="index_arrival_source">
+					<th>入荷元</th>
+				</div>
+				<div class="index_manufactuer">
+					<th>製造元</th>
+				</div>
+				<div class="index_price">
+					<th>価格</th>
+				</div>
+				<div class="index_price">
+					<th>個数</th>
+				</div>
+			</tr>
+		</thead>
+		<tbody>
+			<div class="buy_item_in_cart">
+				<div class="">
+					<% @cart.each do |cart| %>
+						<tr>
+							<td><%= cart.id %></td>
+							<td><%= cart.product_name %></td>
+							<td><%= cart.arrival_source %></td>
+							<td><%= cart.manufactuer %></td>
+							<td><%= cart.price %></td>
+							<td class= "cart_update" id= "<%= @cart_id %>" >
+								<%= hidden_field_tag :cart_id, @cart_id %>
+								<%= render "form", locals: {cart: cart} %>
+							</td>
+						<tr>
+					<% end %>
+				</div>
+			<div>
+		</tbody>
+	</table>
+</div>

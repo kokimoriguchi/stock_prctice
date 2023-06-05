@@ -1,15 +1,15 @@
 <div class="cart_btn_to">
-    <% if item.cart_in?(current_user) %>
-        <div class="cart_out">
-            <%= button_to(item_in_path(item), method: :delete, remote: true, id: :"cart_btn_#{item.id}") do %>
-                <i class="fa-solid fa-check"></i>
-            <% end %>
-        </div>
-    <% else %>
-        <div class="cart_in">
-            <%= button_to(item_in_path(item), method: :post, remote: true, id: :"favorite_btn_#{item.id}") do %>
-                <i class="fa-solid fa-cart-plus"></i>
-            <% end %>
-        </div>
-    <% end %>
+	<% if item.cart_in?(current_user) %>
+		<div class="cart_out">
+			<%= button_to(item_in_path(item), method: :delete, remote: true, id: :"cart_btn_#{item.id}") do %>
+				<i class="fa-solid fa-check"></i>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="cart_in">
+			<%= button_to(item_in_path(item), method: :post, remote: true, id: :"favorite_btn_#{item.id}") do %>
+				<i class="fa-solid fa-cart-plus"></i>
+			<% end %>
+		</div>
+	<% end %>
 </div>

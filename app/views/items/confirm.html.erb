@@ -1,31 +1,31 @@
 <h1>確認画面</h1>
 
 <%= form_with model: @item, url: items_back_path, data: { turbo: false }, local: true do |f| %>
-    <%= f.label :product_name, "商品名" %>
-    <p><%= @item.product_name %></p>
-    <%= f.hidden_field :product_name, required: true %>
+	<%= f.label :product_name, "商品名" %>
+	<p><%= @item.product_name %></p>
+	<%= f.hidden_field :product_name, required: true %>
 
-    <%= f.label :arrival_source, "入荷元" %>
-    <p><%= @item.arrival_source %></p>
-    <%= f.hidden_field :arrival_source, required: true %>
+	<%= f.label :arrival_source, "入荷元" %>
+	<p><%= @item.arrival_source %></p>
+	<%= f.hidden_field :arrival_source, required: true %>
 
-    <%= f.label :manufactuer, "製造元" %>
-    <p><%= @item.manufactuer %></p>
-    <%= f.hidden_field :manufactuer, required: true %>
+	<%= f.label :manufactuer, "製造元" %>
+	<p><%= @item.manufactuer %></p>
+	<%= f.hidden_field :manufactuer, required: true %>
 
-    <%= f.label :price, "価格" %>
-    <p><%= @item.price %></p>
-    <%= f.hidden_field :price, required: true %>
+	<%= f.label :price, "価格" %>
+	<p><%= @item.price %></p>
+	<%= f.hidden_field :price, required: true %>
 
-    <%= f.submit "入力画面に戻る", class: "btn btn-primary" %>
+	<%= f.submit "入力画面に戻る", class: "btn btn-primary" %>
 <% end %>
 
 <%= form_with model: @item, url: items_create_path, data: { turbo: false }, local: true do |f| %>
-    <%= f.hidden_field :product_name, required: true %>
-    <%= f.hidden_field :arrival_source, required: true %>
-    <%= f.hidden_field :manufactuer, required: true %>
-    <%= f.hidden_field :price, required: true %>
-    <%= f.fields_for :logs do |log| %>
-    <% end %>
-    <%= f.submit "登録する", class: "btn btn-primary" %>
+	<%= f.hidden_field :product_name, required: true %>
+	<%= f.hidden_field :arrival_source, required: true %>
+	<%= f.hidden_field :manufactuer, required: true %>
+	<%= f.hidden_field :price, required: true %>
+	<%= f.fields_for :logs do |log| %>
+	<% end %>
+	<%= f.submit "登録する", class: "btn btn-primary" %>
 <% end %>
