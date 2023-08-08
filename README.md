@@ -1,25 +1,44 @@
-# README
+# StockPractice
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<br>
 
-Things you may want to cover:
+## ⚪︎ 開発のきっかけ
 
-* Ruby version
+2022 年 1 月頃にプログラミングを知り、HTML,CSS,JavaScript,ruby,rails と学学習を進め、Rails チュートリアルを 1 周したタイミングで次に何をすればいいのかわからなくなり、よくある機能を入れたものを開発しようと考え作成を始めた仮の商品管理システムになります。
+初めて 0→1 を作成したものなので、今見ても改善点が多いものになります。
 
-* System dependencies
+<br>
 
-* Configuration
+## ⚪︎ 主な使用技術
 
-* Database creation
+| Category | Technology Stack                                                            |
+| -------- | --------------------------------------------------------------------------- |
+| Frontend | Ruby(3.1.2), Ruby on Rails(7.0.4), JavaScript, HTML, SCSS                   |
+| Backend  | Ruby(3.1.2), Ruby on Rails(7.0.4)                                           |
+| Database | MySQL(8.0)                                                                  |
+| Gem      | sass-rails(3.2),font-awesome-sass, pagy,bootstrap-sass(3.3.6), jquery-rails |
+| etc.     | Git, GitHub                                                                 |
 
-* Database initialization
+<br>
 
-* How to run the test suite
+## ⚪︎ 機能一覧
 
-* Services (job queues, cache servers, search engines, etc.)
+| ログイン画面                                                                                                          | アカウント作成画面                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| ![ログイン画面](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/8176bc09-4842-429f-980c-4191c2cdaaab) | ![アカウント作成](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/5c70b7cb-6352-49cc-83f6-8ee7caf79f5e) |
+| ログイン画面、新規店舗登録、利用規約の画面に遷移できる様になっています。                                              | ハンバーガーメニュー内でダークモードの切り替えができ、全画面でダークモードが適用されるように実装しました。              |
 
-* Deployment instructions
+| トップ画面                                                                                                          | 商品一覧画面                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| ![トップ画面](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/1ab133a0-423b-4b94-9524-86133bb16db5) | ![商品一覧](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/dfee090a-01ac-45be-9198-b50f1cf7dd27) |
+| 店名と店番を入力することで新規店舗登録可能にしています。                                                            | 店舗登録を行うとこの画面に遷移し 1 店舗に対して 1 人マネージャーを登録できる様にしています。                      |
 
-* ...
-# stock_prctice
+| 商品登録画面                                                                                                          | カート内商品一覧                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ![商品登録画面](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/297e2d44-5cdd-40fc-b809-7b10b07eb71a) | ![ カート内商品一覧](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/09028848-0c7d-447e-b0bb-3ca2af6f4ff7) |
+| 登録した社員番号とパスワードを入力することでログイン可能にしています。                                                | header 部分に店舗名:従業員登録名表示する様実装しています。この画面からマネージャー権限のある作業画面に遷移できます。       |
+
+| お気に入り一覧表示画面                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------- |
+| ![お気に入り一覧表示画面](https://github.com/kokimoriguchi/stock_prctice/assets/105916391/c200e7f4-e74d-44a6-a0e8-838851d51a04) |
+| マネージャートップ画面から新規スタッフ登録可能です。                                                                            |
